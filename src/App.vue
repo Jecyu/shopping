@@ -73,7 +73,7 @@ body {
 export default {
   computed: {
     cartList() {
-      return this.$store.state.cartList;
+      return this.$store.state.cart.cartList;
     }
   }
 };
