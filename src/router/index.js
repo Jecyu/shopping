@@ -13,7 +13,7 @@ const router = new Router({
         import(/* webpackChunkName: "list" */ "../views/List.vue")
     },
     {
-      path: "/product",
+      path: "/product/:id",
       name: "商品详情",
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route

@@ -32,6 +32,7 @@
 // @ is an alias to /src
 // 导入商品简介组件
 import Product from "@/components/Product.vue";
+import { mapState, mapGetters } from "vuex";
 
 export default {
   name: "home",
@@ -79,16 +80,24 @@ export default {
     }
   },
   computed: {
-    list() {
-      return this.$store.state.product.productList;
-    },
-    brands() {
-      // todo 使用 mapState 来处理多个状态
-      return this.$store.getters["product/brands"];
-    },
-    colors() {
-      return this.$store.getters["product/colors"];
-    },
+    // list() {
+    //   return this.$store.state.product.productList;
+    // },
+    ...mapState("product", {
+      list: "productList"
+    }),
+    // 使用对象展开运算符将 getter 混入 computed 对象中
+    ...mapGetters("product", {
+      brands: "brands",
+      colors: "colors"
+    }),
+    // brands() {
+    //   // 使用 mapState 来处理多个状态
+    //   return this.$store.getters["product/brands"];
+    // },
+    // colors() {
+    //   return this.$store.getters["product/colors"];
+    // },
     filteredAndOrderedList() {
       // 复制原始数据
       let list = [...this.list];
