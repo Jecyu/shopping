@@ -132,6 +132,10 @@ export default {
   mounted() {
     // 初始化时，通过 Vuex 的 action 请求数据
     this.$store.dispatch("product/getProductList");
+    // ...mapActions({
+    //   'getProductList'
+
+    // })
   }
 };
 </script>

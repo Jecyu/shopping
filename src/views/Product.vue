@@ -37,7 +37,7 @@ export default {
     },
     handleAddToCart() {
       // 加入购物车
-      this.$store.cart.commit("addCart", this.id);
+      this.$store.commit("cart/addCart", this.id);
     }
   },
   mounted() {

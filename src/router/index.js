@@ -7,19 +7,43 @@ const router = new Router({
   base: process.env.BASE_URL,
   routes: [
     {
+      path: "/",
+      name: "list",
+      meta: {
+        title: "商品列表"
+      },
+      component: () =>
+        import(/* webpackChunkName: "list" */ "../views/List.vue")
+    },
+    {
       path: "/list",
-      name: "商品列表",
+      name: "list",
+      meta: {
+        title: "商品列表"
+      },
       component: () =>
         import(/* webpackChunkName: "list" */ "../views/List.vue")
     },
     {
       path: "/product/:id",
-      name: "商品详情",
+      name: "product",
+      meta: {
+        title: "商品详情"
+      },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ "../views/Product.vue")
+    },
+    {
+      path: "/cart",
+      name: "cart",
+      meta: {
+        title: "购物车"
+      },
+      component: () =>
+        import(/* webpackChunkName: "cart" */ "../views/Cart.vue")
     }
   ]
 });

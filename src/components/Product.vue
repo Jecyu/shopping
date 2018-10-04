@@ -6,7 +6,7 @@
       <div class="product-color" :style="{ background: colors[info.color] }">
       </div>
       <div class="product-cost">¥ {{ info.cost }}</div>
-      <div class="product-add-cart" @click.prevent="handleCart">加入购物车</div>
+      <div class="product-add-cart" @click.prevent="handleAddToCart">加入购物车</div>
     </router-link>
   </div>
 </template>
@@ -27,8 +27,8 @@ export default {
     };
   },
   methods: {
-    handleCart() {
-      this.$store.commit("addCart", this.info.id);
+    handleAddToCart() {
+      this.$store.commit("cart/addCart", this.info.id);
     }
   }
 };
