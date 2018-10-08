@@ -1,5 +1,3 @@
-import { resolve } from "url";
-
 const state = {
   cartList: []
 };

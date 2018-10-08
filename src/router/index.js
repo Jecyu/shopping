@@ -54,7 +54,7 @@ router.beforeEach((to, from, next) => {
   next();
 });
 
-router.afterEach((to, from) => {
+router.afterEach(() => {
   window.scrollTo(0, 0);
 });
 
